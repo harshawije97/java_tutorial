@@ -1,8 +1,11 @@
 package oop;
 
 import java.util.Date;
+import java.util.List;
 
-public abstract class Task {
+import oop.interfaces.ITask;
+
+public abstract class Task implements ITask<Task> {
     protected int id;
     protected String title = "Untitled";
     protected boolean isReminder;
@@ -29,5 +32,29 @@ public abstract class Task {
 
     void setReminder(Date reminderDate) {
         this.reminderDate = reminderDate;
+    }
+
+    @Override
+    public abstract void createNewTask(Task task);
+
+    @Override
+    public abstract List<Task> getTasks(String type);
+
+    @Override
+    public abstract void updateTask(int id, Task task);
+
+    @Override
+    public abstract String deleteTask(int id);
+
+    @Override
+    public String toString() {
+        return "Task {" +
+                "\n  id=" + id +
+                "\n  title='" + title + '\'' +
+                "\n  isReminder=" + isReminder +
+                "\n  reminderDate='" + reminderDate + '\'' +
+                "\n  taskType='" + taskType + '\'' +
+                "\n  createdOn=" + createdOn +
+                "\n}";
     }
 }

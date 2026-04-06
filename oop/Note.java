@@ -1,6 +1,7 @@
 package oop;
 
 import java.util.Date;
+import java.util.List;
 
 public class Note extends Task {
 
@@ -11,11 +12,14 @@ public class Note extends Task {
         this.description = description;
     }
 
-    void createNewNote() {
-        System.out.println("Id:" + id);
-        System.out.println("Task:" + title);
-        System.out.println("Description:" + description);
-        System.out.println("Created On:" + createdOn);
+    @Override
+    public List<Task> getTasks(String type) {
+        return null;
+    }
+
+    @Override
+    public void createNewTask(Task task) {
+        System.out.println("Task is created successfully...");
     }
 
     @Override
@@ -23,17 +27,24 @@ public class Note extends Task {
         System.out.println("Your task id is: " + id);
     }
 
+    @Override
+    public void updateTask(int id, Task task) {
+        System.out.println("Id of the note: " + id + "\n Note: " + task);
+    }
+
+    @Override
+    public String deleteTask(int id) {
+        if (this.id == id) {
+            return "Note with id " + id + " has been deleted.";
+        }
+        return "Note with id " + id + " not found.";
+    }
+
     // Get the task which is created recently
     @Override
     public String toString() {
-        return super.toString() + "Task {" +
-                "\n  id=" + id +
-                "\n  title='" + title + '\'' +
-                "\n  isReminder=" + isReminder +
-                "\n  reminderDate='" + reminderDate + '\'' +
-                "\n  taskType='" + taskType + '\'' +
+        return super.toString() +
                 "\n  description='" + description + '\'' +
-                "\n  createdOn=" + createdOn +
                 "\n}";
     }
 
