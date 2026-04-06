@@ -1,16 +1,14 @@
 package oop;
 
+import java.util.Date;
+
 public class Startup {
     public static void main(String[] args) {
-        TaskTracker task = new TaskTracker();
+        Note note = new Note("My new note", false, new Date(), "Notes",
+                "This is a simple sample note created for demonstration purposes. It contains exactly twenty five words and shows how concise writing can still communicate clearly");
+        note.createNewNote();
 
-        // Default task
-        task.createNewTask("Meeting with Joe", "Todo", true);
-        System.out.println(task);
-
-        // New task
-        // task.createNewTask("Meeting with Joe", "Todo", true);
-        // task.createNewTask("Lectures @ campus", "Todo", false);
-        // task.createNewTask("Project proposal submission", "Todo", true);
+        // View record
+        note.displayTaskById(1);
     }
 }
