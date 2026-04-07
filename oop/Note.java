@@ -3,11 +3,13 @@ package oop;
 import java.util.Date;
 import java.util.List;
 
+import oop.libs.TaskType;
+
 public class Note extends Task {
 
     private String description;
 
-    public Note(String title, boolean isReminder, Date reminder, String type, String description) {
+    public Note(String title, boolean isReminder, Date reminder, TaskType type, String description) {
         super(title, isReminder, reminder, type);
         this.description = description;
     }

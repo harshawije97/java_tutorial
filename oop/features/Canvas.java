@@ -5,13 +5,14 @@ import java.util.List;
 
 import oop.Task;
 import oop.interfaces.ICanvas;
+import oop.libs.TaskType;
 import oop.utils.Shape;
 
 public class Canvas extends Task implements ICanvas {
 
     private List<Shape> drawingMeta;
 
-    public Canvas(String title, boolean isReminder, Date reminder, String type, List<Shape> meta) {
+    public Canvas(String title, boolean isReminder, Date reminder, TaskType type, List<Shape> meta) {
         super(title, isReminder, reminder, type);
         this.drawingMeta = meta;
     }

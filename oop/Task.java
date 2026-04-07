@@ -4,13 +4,16 @@ import java.util.Date;
 import java.util.List;
 
 import oop.interfaces.ITask;
+import oop.libs.TaskInfo;
+import oop.libs.TaskType;
 
+@TaskInfo(author = "Harshana Wijesinghe", description = "Task tracker parent class. All starts here...", taskType = "Parent", version = 1.0)
 public abstract class Task implements ITask<Task> {
     protected int id;
     protected String title = "Untitled";
     protected boolean isReminder;
     protected Date reminderDate = null;
-    protected String taskType;
+    protected TaskType taskType;
     protected Date createdOn = new Date();
 
     private static int idIncrement;
@@ -22,7 +25,7 @@ public abstract class Task implements ITask<Task> {
     // Display a task
     public abstract void displayTaskById(int id);
 
-    protected Task(String title, boolean isReminder, Date reminder, String type) {
+    protected Task(String title, boolean isReminder, Date reminder, TaskType type) {
         this.id = ++idIncrement;
         this.title = title;
         this.isReminder = isReminder;
