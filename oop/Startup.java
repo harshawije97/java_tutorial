@@ -2,6 +2,8 @@ package oop;
 
 import java.util.Date;
 
+import oop.features.Canvas;
+
 public class Startup {
     public static void main(String[] args) {
         Note note = new Note("My new note", false, new Date(), "Notes",
@@ -14,5 +16,8 @@ public class Startup {
         // View record
         note.displayTaskById(1);
         note.updateTask(1, updatedNote);
+
+        Canvas canvas = new Canvas(null, false, null, null, null);
+        canvas.syncShape();
     }
 }

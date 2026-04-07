@@ -1,18 +1,17 @@
 package oop.features;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import oop.Shape;
 import oop.Task;
 import oop.interfaces.ICanvas;
+import oop.utils.Shape;
 
 public class Canvas extends Task implements ICanvas {
 
-    private ArrayList<Shape> drawingMeta;
+    private List<Shape> drawingMeta;
 
-    protected Canvas(String title, boolean isReminder, Date reminder, String type, ArrayList<Shape> meta) {
+    public Canvas(String title, boolean isReminder, Date reminder, String type, List<Shape> meta) {
         super(title, isReminder, reminder, type);
         this.drawingMeta = meta;
     }
