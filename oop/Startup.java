@@ -1,24 +1,51 @@
 package oop;
 
 import java.util.Date;
+import java.util.Scanner;
 
 import oop.features.Canvas;
 import oop.libs.TaskType;
 
 public class Startup {
     public static void main(String[] args) {
-        Note note = new Note("My new note", false, new Date(), TaskType.NOTE,
-                "This is a simple sample note created for demonstration purposes. It contains exactly twenty five words and shows how concise writing can still communicate clearly");
-        // note.createNewNote();
+        Task task;
 
-        Note updatedNote = new Note("Daily Reminder", true, new Date(), TaskType.NOTE,
-                "Remember to complete your assignments on time and review your code carefully. Consistent practice improves programming skills and helps you become a more confident developer");
+        // User input determines if it is a note or a drawing - runtime polymorphism
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("What to Keep ? (NOTE, CANVAS, TODO)");
+        String option = scanner.nextLine();
 
-        // View record
-        note.displayTaskById(1);
-        note.updateTask(1, updatedNote);
+        try {
+            TaskType taskType = TaskType.valueOf(option.toUpperCase());
+            switch (taskType) {
+                case NOTE:
+                    task = new Note(null, false, null, TaskType.NOTE, "Lorem ipsum");
+                    System.out.println(task.toString());
+                    break;
+                case CANVAS:
+                    task = new Canvas("New Canvas", false, null, taskType, null);
+                    System.out.println(task.toString());
+                    break;
+                case TODO:
+                    System.out.println("Not Implemented Yet");
+                    break;
+                default:
+                    System.out.println("Not Implemented Yet");
+                    break;
+            }
+            /* Modern syntax - Java 21
+             * switch (taskType) {
+             * case NOTE -> task = new Note(null, false, null, TaskType.NOTE,
+             * "Lorem ipsum");
+             * case CANVAS -> task = new Canvas("New Canvas", false, null, taskType, null);
+             * default -> System.out.println("Not Implemented Yet");
+             * }
+             */
 
-        Canvas canvas = new Canvas(null, false, null, TaskType.CANVAS, null);
-        System.out.println(canvas.taskType);
+        } catch (Exception e) {
+            System.out.println("Invalid option. Please check before input");
+        }
+
+        scanner.close();
     }
 }

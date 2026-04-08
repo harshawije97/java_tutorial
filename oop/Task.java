@@ -10,7 +10,7 @@ import oop.libs.TaskType;
 @TaskInfo(author = "Harshana Wijesinghe", description = "Task tracker parent class. All starts here...", taskType = "Parent", version = 1.0)
 public abstract class Task implements ITask<Task> {
     protected int id;
-    protected String title = "Untitled";
+    protected String title;
     protected boolean isReminder;
     protected Date reminderDate = null;
     protected TaskType taskType;
@@ -18,16 +18,17 @@ public abstract class Task implements ITask<Task> {
 
     private static int idIncrement;
 
-    static {
-        idIncrement = 0;
-    }
+    // Static initializer - does not needed here.
+    // static {
+    //     idIncrement = 0;
+    // }
 
     // Display a task
     public abstract void displayTaskById(int id);
 
     protected Task(String title, boolean isReminder, Date reminder, TaskType type) {
         this.id = ++idIncrement;
-        this.title = title;
+        this.title = (title != null && !title.isBlank()) ? title : "Untitled";
         this.isReminder = isReminder;
         this.reminderDate = reminder;
         this.taskType = type;
