@@ -9,12 +9,12 @@ import oop.libs.TaskType;
 
 @TaskInfo(author = "Harshana Wijesinghe", description = "Task tracker parent class. All starts here...", taskType = "Parent", version = 1.0)
 public abstract class Task implements ITask<Task> {
-    protected int id;
+    private int id;
     private String title;
     private boolean isReminder;
     private Date reminderDate;
     private TaskType taskType;
-    protected Date createdOn = new Date();
+    private Date createdOn = new Date();
 
     private static int idIncrement;
 
@@ -36,6 +36,10 @@ public abstract class Task implements ITask<Task> {
 
     // Getters and setters
     // Getters---
+    int getId() {
+        return this.id;
+    }
+
     String getTitle() {
         return this.title;
     }
@@ -52,16 +56,24 @@ public abstract class Task implements ITask<Task> {
         return this.taskType;
     }
 
+    Date getCreatedOn() {
+        return this.createdOn;
+    }
+
     // Setters---
-    void setReminderDate(Date reminderDate) {
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setReminderDate(Date reminderDate) {
         this.reminderDate = reminderDate;
     }
 
-    void setTaskType(TaskType taskType) {
+    public void setTaskType(TaskType taskType) {
         this.taskType = taskType;
     }
 
-    void setReminder(boolean isReminder) {
+    public void setReminder(boolean isReminder) {
         this.isReminder = isReminder;
     }
 

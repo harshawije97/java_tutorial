@@ -36,7 +36,7 @@ public class Note extends Task {
 
     @Override
     public String deleteTask(int id) {
-        if (this.id == id) {
+        if (this.getId() == id) {
             return "Note with id " + id + " has been deleted.";
         }
         return "Note with id " + id + " not found.";
