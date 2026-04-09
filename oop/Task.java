@@ -10,17 +10,17 @@ import oop.libs.TaskType;
 @TaskInfo(author = "Harshana Wijesinghe", description = "Task tracker parent class. All starts here...", taskType = "Parent", version = 1.0)
 public abstract class Task implements ITask<Task> {
     protected int id;
-    protected String title;
-    protected boolean isReminder;
-    protected Date reminderDate = null;
-    protected TaskType taskType;
+    private String title;
+    private boolean isReminder;
+    private Date reminderDate;
+    private TaskType taskType;
     protected Date createdOn = new Date();
 
     private static int idIncrement;
 
     // Static initializer - does not needed here.
     // static {
-    //     idIncrement = 0;
+    // idIncrement = 0;
     // }
 
     // Display a task
@@ -34,8 +34,35 @@ public abstract class Task implements ITask<Task> {
         this.taskType = type;
     }
 
-    void setReminder(Date reminderDate) {
+    // Getters and setters
+    // Getters---
+    String getTitle() {
+        return this.title;
+    }
+
+    boolean getIsReminder() {
+        return this.isReminder;
+    }
+
+    Date getReminderDate() {
+        return this.reminderDate;
+    }
+
+    TaskType getTaskType() {
+        return this.taskType;
+    }
+
+    // Setters---
+    void setReminderDate(Date reminderDate) {
         this.reminderDate = reminderDate;
+    }
+
+    void setTaskType(TaskType taskType) {
+        this.taskType = taskType;
+    }
+
+    void setReminder(boolean isReminder) {
+        this.isReminder = isReminder;
     }
 
     @Override

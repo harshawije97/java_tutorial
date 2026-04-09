@@ -1,6 +1,5 @@
 package oop;
 
-import java.util.Date;
 import java.util.Scanner;
 
 import oop.features.Canvas;
