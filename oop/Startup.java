@@ -3,6 +3,7 @@ package oop;
 import java.util.Scanner;
 
 import oop.features.Canvas;
+import oop.features.Note;
 import oop.libs.TaskType;
 
 public class Startup {

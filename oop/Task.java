@@ -36,27 +36,27 @@ public abstract class Task implements ITask<Task> {
 
     // Getters and setters
     // Getters---
-    int getId() {
+    public int getId() {
         return this.id;
     }
 
-    String getTitle() {
+    public String getTitle() {
         return this.title;
     }
 
-    boolean getIsReminder() {
+    public boolean getIsReminder() {
         return this.isReminder;
     }
 
-    Date getReminderDate() {
+    public Date getReminderDate() {
         return this.reminderDate;
     }
 
-    TaskType getTaskType() {
+    public TaskType getTaskType() {
         return this.taskType;
     }
 
-    Date getCreatedOn() {
+    public Date getCreatedOn() {
         return this.createdOn;
     }
 

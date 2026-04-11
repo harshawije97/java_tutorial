@@ -1,8 +1,9 @@
-package oop;
+package oop.features;
 
 import java.util.Date;
 import java.util.List;
 
+import oop.Task;
 import oop.libs.TaskType;
 
 public class Note extends Task {
